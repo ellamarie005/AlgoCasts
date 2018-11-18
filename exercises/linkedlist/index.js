@@ -24,6 +24,30 @@ class LinkedList {
     //all that can be written like this.
     this.head = new Node(data, this.head);
   }
+
+  size() {
+    let counter = 0;
+    let node = this.head;
+
+    while(node) {
+      counter++;
+      node = node.next;
+    }
+    return counter;
+  }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    let node = this.head;
+
+    while(node) {
+      node = node.next;
+    }
+    return node;
+  }
 }
 
 module.exports = { Node, LinkedList };
