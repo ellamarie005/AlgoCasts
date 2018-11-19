@@ -156,6 +156,25 @@ class LinkedList {
     // this allows for previous to look at the update node
     previous.next = node;
   }
+
+  forEach(fn) {
+    let node = this.head;
+    let counter = 0;
+    while (node) {
+      fn(node, counter);
+      node = node.next;
+      counter++;
+    }
+  }
+
+  // generator function with the key symbol.iterator
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
