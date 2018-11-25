@@ -28,7 +28,39 @@ class Node {
 }
 
 class Tree {
-  
+  constructor() {
+    this.root = null;
+  }
+
+  // traverse bf -> goes through every level one by one
+  // example: i want you to print all employees categorized by their position
+  // traverse df -> goes through branches from the left one by one
+  // example i want you to print all employees base on who they are under
+   
+  traverseBF(fn) {
+    const arr = [this.root];
+    // items added at the end
+    while(arr.length) {
+      // shift method will take out the first thing in the array
+      const node =arr.shift();
+      
+      // for (let child of node.children) {
+      //   arr.push(child);
+      // } or right it like this. it is the same as the for loop
+      arr.push(...node.children);
+      fn(node);
+    }
+  }
+
+  traverseDF(fn) {
+    const arr = [this.root];
+    // items added in the beginning
+    while(arr.length){
+      const node = arr.shift();
+      arr.unshift(...node.children);
+      fn(node);
+    }
+  }
 }
 
 module.exports = { Tree, Node };
