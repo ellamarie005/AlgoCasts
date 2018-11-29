@@ -59,10 +59,11 @@ function mergeSort(arr) {
   // taking anything from the center to anything after
   const right = arr.slice(center);
 
+  // calling merge function and joining them
  return merge(mergeSort(left), mergeSort(right));
 }
 
-// joins not sorted yet
+// sorted not joined yet?
 function merge(left, right) {
   const results = [];
   

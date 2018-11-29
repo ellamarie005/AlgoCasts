@@ -29,6 +29,7 @@ function maxChar(str) {
       maxChar = char;
     }
   }
+  console.log(max);
   return maxChar;
 }
 
